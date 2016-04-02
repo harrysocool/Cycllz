@@ -13,13 +13,14 @@
 
 # Compiled MEX binaries (all platforms)
 *.mex*
+*.mat
 
 # Simulink Code Generation
 slprj/
 
 # datasets
-datasetA/*
-datasetB/*
-Evaluation/*
-Literatures/*
-_gsdata_/*
+datasetA/
+datasetB/
+Evaluation/
+Literatures/
+_gsdata_/
