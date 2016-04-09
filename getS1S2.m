@@ -103,7 +103,7 @@ function s = getS1S2(t,w,inter,i50)
     s = cell(0);
     s(1,:) = {'Time','Peaks location'};
     wrong_peaks = find(cell2mat(new_locs2(:,2)) < 0.1);
-    if(length(wrong_peaks) > 10)
+    if(length(wrong_peaks) > 15)
         s(2,:) = {new_locs(:,1),new_locs(:,2)};
     else
         s(2,:) = {new_locs2(:,1),new_locs2(:,2)};

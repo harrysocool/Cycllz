@@ -109,7 +109,7 @@ end
 
 
 %%
-figure('Name',['Number. ',num2str(one),' ', wav{one,2}])
+figure('Name',['Number. ',num2str(one),' ', wav{one,2}],'Position',[830 250 550 400])
 subplot(311)
 plot(t,w);hold on
 plot(cell2mat(new_locs(:,1)),cell2mat(new_locs(:,2)),'ro');
