@@ -13,7 +13,7 @@ function cc = getCycle(t,w)
     if(length(t) <= 200)
         N_st = 10;
     else
-        N_st = 50;
+        N_st = 30;
     end
     [pks1, locs1] = findpeaks(a(N_st:length(a)),t(N_st:length(a)),'MinPeakDistance',t(N_st),'MinPeakHeight',median(a));
 

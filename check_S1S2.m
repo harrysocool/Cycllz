@@ -37,7 +37,7 @@ for i = 1:size(area,1)
 end
 
 interval = wav{one,CYCLE}{2,3}-1;
-interval50 = wav{one,CYCLE}{2,4};
+interval50 = wav{one,CYCLE}{2,4}+1;
 interN = diff(cell2mat(new_locs(:,4)));
 I = find(interN<=interval50);
 temp_pks1 = new_locs(I,:);
