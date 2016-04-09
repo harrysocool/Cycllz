@@ -22,18 +22,19 @@ end
 [pks1, locs1] = findpeaks(a(N_st:length(a)),t(N_st:length(a)),'MinPeakDistance',t(50),'MinPeakHeight',median(a),'MinPeakProminence',median(a));
 if(~isempty(locs1))
     [MAX,idx1] = max(pks1);
+    [pks,idx] = sort(pks1,'descend');
 
-    j = idx1-1;
+    j = idx(2);
 
-    for i = j:-1:1
-        temp = MAX*3/4;
+    for i = j-1:-1:1
+        temp = pks1(j)*2/3;
         if(pks1(i) > temp)
-            idx1 = i;
+            j = i;
         end
     end
 
-    d = 0.9*locs1(idx1);
-    p = pks1(idx1)/4.5;
+    d = 0.9*locs1(j);
+    p = pks1(j)/4.5;
 else
     d = t(round(length(t)/2));
     p = median(a);
