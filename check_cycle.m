@@ -19,14 +19,14 @@ if(length(t) <= 200)
 else
     N_st = 30;
 end
-[pks1, locs1] = findpeaks(a(N_st:length(a)),t(N_st:length(a)),'MinPeakDistance',t(N_st),'MinPeakHeight',median(a));
+[pks1, locs1] = findpeaks(a(N_st:length(a)),t(N_st:length(a)),'MinPeakDistance',t(50),'MinPeakHeight',median(a));
 
 [MAX,idx1] = max(pks1);
 
 j = idx1-1;
 
 for i = j:-1:1
-    temp = MAX*1/2;
+    temp = MAX*3/4;
     if(pks1(i) > temp)
         idx1 = i;
     end
@@ -49,7 +49,7 @@ c = diff([0;locs2]);
         s = std(diff(locs2));
     end
 %%
-figure(2)
+figure()
 plot(t,a);hold on
 plot(d,0,'rx');
 plot(locs1,pks1,'rx');
