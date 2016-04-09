@@ -1,5 +1,5 @@
 function cc = getCycle(t,w)
-    cc(1,:) = {'cycle array','cycle time median','cycle time samples Number','50ms samples number','std'};
+    cc(1,:) = {'peak cycle array','cycle time median','cycle time samples Number','50ms samples number','std'};
     a = [];
     N = size(t,1);
     for m = 1:length(w)
@@ -33,7 +33,7 @@ function cc = getCycle(t,w)
     c = diff([0;locs2]);
 
     
-    if(length(c)<=3)
+    if(length(c)<3)
         c = 0;
         me = mean(c);
         interN = length(t);
@@ -45,5 +45,5 @@ function cc = getCycle(t,w)
         inter50 = round(0.05/(t(length(t))/N));
         s = std(diff(locs2));
     end
-    cc(2,:) = {c,me,interN,inter50,s};
+    cc(2,:) = {locs2,me,interN,inter50,s};
 end

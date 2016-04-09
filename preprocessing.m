@@ -2,6 +2,7 @@
 %% put everything into the wav cell
 PATH = './datasetA';
 decimatedRate = 20;
+clear wav;
 wav(1,:) = {'location','name','raw','normalised'};
 d = dir(PATH);
 for i = 3:size(d,1)

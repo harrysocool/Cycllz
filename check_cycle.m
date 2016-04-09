@@ -1,5 +1,5 @@
-one = randi(all,1,1);
-% one = 118;
+% one = randi(all,1,1);
+% one = 163;
 
 t = wav{one,ENERGY}{2,1};
 w = wav{one,ENERGY}{2,2};
@@ -36,7 +36,7 @@ d = 0.9*locs1(idx1);
 [pks2, locs2] = findpeaks(a(N_st:length(a)),t(N_st:length(a)),'MinPeakDistance',d,'MinPeakHeight',pks1(idx1)/4.5);
 c = diff([0;locs2]);
 
-    if(length(c)<=3)
+    if(length(c)<3)
         c = 0;
         me = median(c);
         interN = length(t);
@@ -56,6 +56,3 @@ plot(locs1,pks1,'rx');
 plot(locs2,pks2,'ob');
 
 disp([num2str(one),' ',wav{one,2},' ',num2str(s),' ',num2str(me)]);
-
-pause
-close all

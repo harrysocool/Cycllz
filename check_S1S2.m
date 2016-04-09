@@ -1,6 +1,6 @@
 
-% one = randi(all,1,1);
-one = 56;
+% one = randi(normal,1,1);
+% one = 163;
 
 t = wav{one,ENERGY}{2,1};
 w = wav{one,ENERGY}{2,2};
@@ -113,6 +113,7 @@ figure('Name',['Number. ',num2str(one),' ', wav{one,2}])
 subplot(311)
 plot(t,w);hold on
 plot(cell2mat(new_locs(:,1)),cell2mat(new_locs(:,2)),'ro');
+plot(wav{one,CYCLE}{2,1},zeros(length(wav{one,CYCLE}{2,1}),1),'bo');
 subplot(312)
 plot(t,w);hold on
 plot(cell2mat(new_locs1(:,1)),cell2mat(new_locs1(:,2)),'rx');
@@ -121,5 +122,3 @@ plot(t,w);hold on;grid on
 plot(cell2mat(new_locs2(:,1)),cell2mat(new_locs2(:,2)),'rx');
 plot(cell2mat(plot_interval(:,1)),cell2mat(plot_interval(:,2)),'bo');
 
-pause
-close all
