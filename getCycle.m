@@ -22,7 +22,7 @@ function cc = getCycle(t,w)
     j = idx1-1;
 
     for i = j:-1:1
-        temp = MAX*3/4;
+        temp = MAX*1/2;
         if(pks1(i) > temp)
             idx1 = i;
         end
