@@ -8,3 +8,10 @@ N = randi(all,1,5);
 %     getNplot(N,wav,ENERGY,ENERGY+1,'energy');
 getNplot(N,wav,ENERGY,S1S2,'s1s2');
 %%
+
+one = randi(normal,1,1);
+% one = 163;
+
+getNplot(one,wav,ENERGY,S1S2,'s1s2');
+
+run check_S1S2;
