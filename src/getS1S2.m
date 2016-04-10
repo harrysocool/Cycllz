@@ -100,13 +100,17 @@ function s = getS1S2(t,w,inter,i50,t_st)
         end
     end
     
+    [~,idx3] = sort(cell2mat(new_locs2(:,1)),'ascend');
+    new_locs2 = new_locs2(idx3,:);
+    new_locs2 = unique(new_locs2);
+    
     %% Decide which new_locs to choose
     s = cell(0);
-    s(1,:) = {'Time','Peaks location'};
+    s(1,:) = {'Time','Peaks location','Wrong'};
     wrong_peaks = find(cell2mat(new_locs2(:,2)) < 0.1);
     if(length(wrong_peaks) > 15)
-        s(2,:) = {new_locs(:,1),new_locs(:,2)};
+        s(2,:) = {new_locs(:,1),new_locs(:,2),1};
     else
-        s(2,:) = {new_locs2(:,1),new_locs2(:,2)};
+        s(2,:) = {new_locs2(:,1),new_locs2(:,2),0};
     end
 end

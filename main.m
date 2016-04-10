@@ -5,6 +5,7 @@ DEN2 = 6;
 ENERGY = 8;
 CYCLE = 10;
 S1S2 = 11;
+CYCLE2 = 12;
 
 % parameters
 level = 5;

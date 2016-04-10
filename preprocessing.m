@@ -102,7 +102,7 @@ for i = 1:size(wav,1)-1
     T = getSignal(e,Fs);
     wav(i+1,ENERGY+1) = {T};
 end
-%% Get the cardiac cycle
+%% Get the cardiac cycle time
 wav(1,CYCLE) = {'Cycle'};
 for i = 1:size(wav,1)-1
     t = wav{i+1,ENERGY}{2,1};
@@ -121,6 +121,10 @@ for i = 1:size(wav,1)-1
     s = getS1S2(t,w,interval,interval50,t_st);
     wav(i+1,S1S2) = {s};
 end
-
-%%
-% save('wav','wav');
+%% Get Sysole and Diastole cycle time
+% wav(1,CYCLE2) = {'2 cycle times'};
+% for i = 1:size(wav,1)-1
+%     t = wav{i+1,S1S2}{2,1};
+%     c = getSD(t);
+%     wav(i+1,CYCLE2) = {c};
+% end
