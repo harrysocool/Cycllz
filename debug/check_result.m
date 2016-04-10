@@ -10,7 +10,7 @@ N = randi(all,1,5);
 % getNplot(N,wav,ENERGY,S1S2,'s1s2');
 %%
 close all;
-one = randi(extrahls,1,1);
+one = randi(all,1,1);
 % one = 119;
 
 getNplot(one,wav,ENERGY,S1S2,'s1s2');
