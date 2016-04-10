@@ -1,4 +1,4 @@
-function s = getS1S2(t,w,inter,i50)
+function s = getS1S2(t,w,inter,i50,t_st)
     %% Derivate to get local max & min, then peaks
     dw = [w(1);diff(w)];
     local_mm = cell(0);
@@ -47,7 +47,8 @@ function s = getS1S2(t,w,inter,i50)
     new_locs1 = cell(0);
     plot_interval = cell(0);
 
-    T_st = new_locs{1,4}-2;
+%     T_st = new_locs{1,4}-2;
+    T_st = find(t == t_st) - 2;
     for i = T_st:interval:length(t)
         T_end = i+interval;
         if(T_end<=length(t))
