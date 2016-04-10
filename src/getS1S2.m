@@ -102,7 +102,8 @@ function s = getS1S2(t,w,inter,i50,t_st)
     
     [~,idx3] = sort(cell2mat(new_locs2(:,1)),'ascend');
     new_locs2 = new_locs2(idx3,:);
-    new_locs2 = unique(new_locs2);
+    [~,idx4,~] = unique(cell2mat(new_locs2(:,1)));
+    new_locs2 = new_locs2(idx4,:);
     
     %% Decide which new_locs to choose
     s = cell(0);

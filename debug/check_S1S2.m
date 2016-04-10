@@ -112,7 +112,9 @@ end
 
 [~,idx3] = sort(cell2mat(new_locs2(:,1)),'ascend');
 new_locs2 = new_locs2(idx3,:);
-new_locs2 = unique(new_locs2);
+[~,idx4,~] = unique(cell2mat(new_locs2(:,1)));
+new_locs2 = new_locs2(idx4,:);
+%%
 
 wrong_peaks = find(cell2mat(new_locs2(:,2)) < 0.1);
 if(length(wrong_peaks) > 15)
