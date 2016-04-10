@@ -1,6 +1,6 @@
 
 % one = randi(normal,1,1);
-% one = 163;
+% one = 110;
 
 t = wav{one,ENERGY}{2,1};
 w = wav{one,ENERGY}{2,2};
@@ -44,7 +44,7 @@ temp_pks1 = new_locs(I,:);
 for i = 1:length(I)
     temp_pks = {};
     II = find(cell2mat(new_locs(:,4))==temp_pks1{i,4});
-    if(~isempty(II))
+    if(~isempty(II) & (II ~= size(new_locs,1)))
         temp_pks(size(temp_pks,1)+1:size(temp_pks,1)+2,:) = new_locs(II:II+1,:);
         [~,III] = sort(cell2mat(temp_pks(:,2)),'descend');
         IIII = find(cell2mat(new_locs(:,4))==temp_pks{III(2),4});
@@ -84,10 +84,10 @@ end
 interN = diff(cell2mat(new_locs1(:,4)));
 I = find(interN<=interval50);
 temp_pks1 = new_locs1(I,:);
-for i = 1:length(I)
+for i = 95:length(I)
     temp_pks = {};
     II = find(cell2mat(new_locs1(:,4))==temp_pks1{i,4});
-    if(~isempty(II))
+    if(~isempty(II) & (II ~= size(new_locs1,1)))
         temp_pks(size(temp_pks,1)+1:size(temp_pks,1)+2,:) = new_locs1(II:II+1,:);
         [~,III] = sort(cell2mat(temp_pks(:,2)),'descend');
         IIII = find(cell2mat(new_locs1(:,4))==temp_pks{III(2),4});

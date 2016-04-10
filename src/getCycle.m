@@ -41,6 +41,9 @@ function cc = getCycle(t,w)
     
     if(length(c)<3)
         c = 0;
+        if(isempty(locs2))
+           locs2 = t(length(t)-10); 
+        end
         me = mean(c);
         interN = length(t);
         inter50 = round(0.05/(t(length(t))/N));

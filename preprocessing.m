@@ -112,12 +112,12 @@ for i = 1:size(wav,1)-1
 end
 %% Get S1 S2 location
 wav(1,S1S2) = {'S1S2 locs'};
-for i = 1:size(wav,1)-1
+for i = 109:size(wav,1)-1
     t = wav{i+1,ENERGY}{2,1};
     w = wav{i+1,ENERGY}{2,2};
     interval = wav{i+1,CYCLE}{2,3};
     interval50 = wav{i+1,CYCLE}{2,4};
-    t_st = wav{one,CYCLE}{2,1}(1);
+    t_st = wav{i+1,CYCLE}{2,1}(1);
     s = getS1S2(t,w,interval,interval50,t_st);
     wav(i+1,S1S2) = {s};
 end

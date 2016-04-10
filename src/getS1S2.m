@@ -28,15 +28,15 @@ function s = getS1S2(t,w,inter,i50,t_st)
         end
     end
     
-    interval = inter-1;
-    interval50 = i50+1;
+    interval = inter - 1;
+    interval50 = i50 + 3;
     interN = diff(cell2mat(new_locs(:,4)));
     I = find(interN<=interval50);
     temp_pks1 = new_locs(I,:);
     for i = 1:length(I)
         temp_pks = {};
         II = find(cell2mat(new_locs(:,4))==temp_pks1{i,4});
-        if(~isempty(II))
+        if(~isempty(II) & (II ~= size(new_locs,1)))
             temp_pks(size(temp_pks,1)+1:size(temp_pks,1)+2,:) = new_locs(II:II+1,:);
             [~,III] = sort(cell2mat(temp_pks(:,2)),'descend');
             IIII = find(cell2mat(new_locs(:,4))==temp_pks{III(2),4});
@@ -77,7 +77,7 @@ function s = getS1S2(t,w,inter,i50,t_st)
     for i = 1:length(I)
         temp_pks = {};
         II = find(cell2mat(new_locs1(:,4))==temp_pks1{i,4});
-        if(~isempty(II))
+        if(~isempty(II) & (II ~= size(new_locs1,1)))
             temp_pks(size(temp_pks,1)+1:size(temp_pks,1)+2,:) = new_locs1(II:II+1,:);
             [~,III] = sort(cell2mat(temp_pks(:,2)),'descend');
             IIII = find(cell2mat(new_locs1(:,4))==temp_pks{III(2),4});
