@@ -122,4 +122,4 @@ for i = 1:size(wav,1)-1
 end
 
 %%
-save('wav','wav');
+% save('wav','wav');

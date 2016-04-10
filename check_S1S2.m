@@ -55,7 +55,10 @@ end
 new_locs1 = cell(0);
 plot_interval = cell(0);
 
-T_st = new_locs{1,4}-2;
+% T_st = new_locs{1,4}-2;
+t_st = wav{one,CYCLE}{2,1}(1);
+T_st = find(t == t_st) - 2;
+
 for i = T_st:interval:length(t)
     T_end = i+interval;
     if(T_end<=length(t))
@@ -109,7 +112,7 @@ end
 
 
 %%
-figure('Name',['Number. ',num2str(one),' ', wav{one,2}],'Position',[830 250 550 400])
+figure('Name',['Number. ',num2str(one),' ', wav{one,2}],'Position',[600 500 550 400])
 subplot(311)
 plot(t,w);hold on
 plot(cell2mat(new_locs(:,1)),cell2mat(new_locs(:,2)),'ro');

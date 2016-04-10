@@ -44,7 +44,7 @@ function getNplot(N,wav,raw,d,t)
            ylim([0 1])
          end 
     elseif strcmp(t,'s1s2')
-        figure('Name',[wav{1,raw},' vs. ',wav{1,d}],'Position',[130 250 550 400])
+        figure('Name',[wav{1,raw},' vs. ',wav{1,d}],'Position',[0 500 550 400])
          for i = 1:size(N,2)
                       
            subplot(size(N,2),1,i);

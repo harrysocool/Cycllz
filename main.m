@@ -16,5 +16,5 @@ normal = [94,124];
 testing = [125,176];
 all = [1,176];
 
-load('wav.mat');
-% run preprocessing;
+% load('wav.mat');
+run preprocessing;
