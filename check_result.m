@@ -1,4 +1,5 @@
 %% Multiple result checking
+
 % one = 7;
 close all;
 N = randi(all,1,5);
