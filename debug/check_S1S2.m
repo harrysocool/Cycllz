@@ -84,7 +84,7 @@ end
 interN = diff(cell2mat(new_locs1(:,4)));
 I = find(interN<=interval50);
 temp_pks1 = new_locs1(I,:);
-for i = 95:length(I)
+for i = 1:length(I)
     temp_pks = {};
     II = find(cell2mat(new_locs1(:,4))==temp_pks1{i,4});
     if(~isempty(II) & (II ~= size(new_locs1,1)))
