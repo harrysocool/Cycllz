@@ -22,8 +22,18 @@ t = wav{one,S1S2}{2,1};
 t = cell2mat(t);
 d = diff(t);
 
+[c,h] = hist(d,linspace(0,2,100));
+[~,S] = sort(c,'descend');
+D = abs(wav{one,CYCLE}{2,2} - h(S(1)));
+
 figure('Position',[0 325 550 150])
-plot(d);
+plot(d);hold on
+plot(h(S(1))*ones(length(d)),'r');
+plot(D*ones(length(d)),'b');
+if(length(S)>=2)
+    plot(h(S(2))*ones(length(d)),'g');
+end
+
 figure('Position',[0 100 550 150])
-histogram(d,[0:0.1:2]);
+histogram(d,linspace(0,2,100));
 display(wav{one,CYCLE}{2,2});
