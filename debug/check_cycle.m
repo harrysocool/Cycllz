@@ -20,7 +20,7 @@ else
     N_st = 30;
 end
 [pks1, locs1] = findpeaks(a(N_st:length(a)),t(N_st:length(a)),'MinPeakDistance',t(50),'MinPeakHeight',median(a),'MinPeakProminence',median(a));
-if(~isempty(locs1))
+if(length(locs1)>2)
     [MAX,idx1] = max(pks1);
     [pks,idx] = sort(pks1,'descend');
 
