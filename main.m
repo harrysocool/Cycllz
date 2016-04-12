@@ -1,11 +1,11 @@
 clear, clc
-ORI = 3;
-RAW = 4;
-DEN2 = 6;
-ENERGY = 8;
-CYCLE = 10;
-S1S2 = 11;
-CYCLE2 = 12;
+ORI = 4;
+RAW = 5;
+DEN2 = 7;
+ENERGY = 9;
+CYCLE = 11;
+S1S2 = 12;
+CYCLE2 = 13;
 
 % parameters
 level = 5;

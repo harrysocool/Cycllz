@@ -3,7 +3,7 @@
 PATH = './datasetA';
 decimatedRate = 20;
 clear wav;
-wav(1,:) = {'location','name','raw','normalised'};
+wav(1,:) = {'index','location','name','raw','normalised'};
 d = dir(PATH);
 for i = 3:size(d,1)
    if(d(i).isdir ~= 0)
@@ -16,7 +16,7 @@ for i = 3:size(d,1)
             wave = (wave-min(wave))/(max(wave)-min(wave));
             wave = wave - mean(wave);
             ww = getSignal(wave,Fs);
-            wav(size(wav,1)+1,:) = {wavset.WavLocation{j},d(i).name,ori,ww};
+            wav(size(wav,1)+1,:) = {i-3,wavset.WavLocation{j},d(i).name,ori,ww};
         end
    end
 end
@@ -122,9 +122,11 @@ for i = 1:size(wav,1)-1
     wav(i+1,S1S2) = {s};
 end
 %% Get Sysole and Diastole cycle time
-% wav(1,CYCLE2) = {'2 cycle times'};
-% for i = 1:size(wav,1)-1
-%     t = wav{i+1,S1S2}{2,1};
-%     c = getSD(t);
-%     wav(i+1,CYCLE2) = {c};
-% end
+wav(1,CYCLE2) = {'2 cycle times'};
+clear h;
+for i = 1:125
+    t = wav{i+1,S1S2}{2,1};
+    c = getSD(t);
+    h(i,:) = c;
+    label(i,1) = wav{i+1,1};
+end
