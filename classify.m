@@ -1,5 +1,5 @@
 clear a;
-a = h;
+a = hist;
 for j=1:size(a,2)
     a(:,j)=a(:,j)-mean(a(:,j));
     a(:,j)=a(:,j)/std(a(:,j));

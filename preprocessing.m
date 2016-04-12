@@ -127,6 +127,6 @@ clear h;
 for i = 1:125
     t = wav{i+1,S1S2}{2,1};
     c = getSD(t);
-    h(i,:) = c;
+    hist(i,:) = c;
     label(i,1) = wav{i+1,1};
 end
