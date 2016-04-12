@@ -7,11 +7,11 @@ function getNplot(N,wav,raw,d,t)
            subplot(size(N,2),2,i);
            plot(wav{N(temp),raw+1}{2,1},wav{N(temp),raw+1}{2,2});
            xlim([0 400])
-           title([wav{N(temp),2},' NO.',num2str(N(temp))])
+           title([wav{N(temp),3},' NO.',num2str(N(temp))])
        
            subplot(size(N,2),2,i+1); 
            plot(wav{N(temp),d+1}{2,1},wav{N(temp),d+1}{2,2});
-           title([wav{N(temp),2},' NO.',num2str(N(temp))])
+           title([wav{N(temp),3},' NO.',num2str(N(temp))])
            xlim([0 400])
         end
     elseif strcmp(t,'signal')
@@ -20,13 +20,13 @@ function getNplot(N,wav,raw,d,t)
            temp = temp + 1;
            subplot(size(N,2),2,i);
            plot(wav{N(temp),raw}{2,1},wav{N(temp),raw}{2,2});
-           title([wav{N(temp),2},' NO.',num2str(N(temp))])
+           title([wav{N(temp),3},' NO.',num2str(N(temp))])
            ylim([-0.5 0.5])
            
            subplot(size(N,2),2,i+1); 
            plot(wav{N(temp),d}{2,1},wav{N(temp),d}{2,2});
            ylim([-0.5 0.5])
-           title([wav{N(temp),2},' NO.',num2str(N(temp))])
+           title([wav{N(temp),3},' NO.',num2str(N(temp))])
         end
     elseif strcmp(t,'energy')
         figure('Name',[wav{1,raw},' vs. ',wav{1,d}])
@@ -35,12 +35,12 @@ function getNplot(N,wav,raw,d,t)
                       
            subplot(size(N,2),2,i);
            plot(wav{N(temp),raw}{2,1},wav{N(temp),raw}{2,2});       
-           title([wav{N(temp),2},' NO.',num2str(N(temp))])
+           title([wav{N(temp),3},' NO.',num2str(N(temp))])
            ylim([0 1])
            
            subplot(size(N,2),2,i+1); 
            plot(wav{N(temp),d}{2,1},wav{N(temp),d}{2,2});
-           title([wav{N(temp),2},' NO.',num2str(N(temp))])
+           title([wav{N(temp),3},' NO.',num2str(N(temp))])
            ylim([0 1])
          end 
     elseif strcmp(t,'s1s2')
@@ -49,7 +49,7 @@ function getNplot(N,wav,raw,d,t)
                       
            subplot(size(N,2),1,i);
             plot(wav{N(i),raw}{2,1},wav{N(i),raw}{2,2});
-            title([wav{N(i),2},' NO.',num2str(N(i))])
+            title([wav{N(i),3},' NO.',num2str(N(i))])
             hold on
             plot(cell2mat(wav{N(i),d}{2,1}),cell2mat(wav{N(i),d}{2,2}),'ro');
            hold off;

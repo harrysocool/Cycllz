@@ -10,7 +10,7 @@ N = randi(all,1,5);
 % getNplot(N,wav,ENERGY,S1S2,'s1s2');
 %%
 close all;
-one = randi(artifact,1,1);
+one = randi(all,1,1);
 % one = 119;
 
 getNplot(one,wav,ENERGY,S1S2,'s1s2');
@@ -23,7 +23,7 @@ t = cell2mat(t);
 d = diff(t);
 
 % Histogram method
-[c,h] = hist(d,linspace(0,1,10));
+[c,h] = hist(d,linspace(0.2,1,20));
 [~,S] = sort(c,'descend');
 D = abs(wav{one,CYCLE}{2,2} - h(S(1)));
 
@@ -42,5 +42,5 @@ plot(SD(1)*ones(length(d)),'r--');
 plot(SD(2)*ones(length(d)),'b--');
 
 figure('Position',[0 100 550 150])
-histogram(d,linspace(0,2,100));
+histogram(d,linspace(0.2,1,20));
 display(wav{one,CYCLE}{2,2});

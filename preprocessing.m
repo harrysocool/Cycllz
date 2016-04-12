@@ -123,10 +123,12 @@ for i = 1:size(wav,1)-1
 end
 %% Get Sysole and Diastole cycle time
 wav(1,CYCLE2) = {'2 cycle times'};
-clear h;
-for i = 1:125
+clear h1;
+clear label;
+for i = 1:124
     t = wav{i+1,S1S2}{2,1};
-    c = getSD(t);
-    hist(i,:) = c;
+    d = diff(cell2mat(t));
+    [h,~] = hist(d,linspace(0.2,1,20));
+    h1(i,:) = [h,wav{i+1,CYCLE}{2,2},wav{i+1,CYCLE}{2,2}];
     label(i,1) = wav{i+1,1};
 end
