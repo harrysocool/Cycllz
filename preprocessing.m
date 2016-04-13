@@ -1,6 +1,5 @@
 
 %% put everything into the wav cell
-PATH = './datasetA';
 decimatedRate = 20;
 clear wav;
 wav(1,:) = {'index','location','name','raw','normalised'};
@@ -20,6 +19,14 @@ for i = 3:size(d,1)
         end
    end
 end
+string = {'normal','artifact','murmur','extrahls','normal_noisy','murmur_noisy'};
+for i  = 1:size(string,2)
+    temp = find(strcmp(string{i},wav(:,3)) == 1);
+    if (temp ~= 0)
+        eval([string{i},' = ','[',num2str(temp(1)),',',num2str(temp(length(temp))),']']);
+    end
+end
+
 %% saving rawFFT into wav cell
 % NO.5 column is the FFT data, 2X2 cell include x axis & y axis
 wav(1,RAW+1) = {'rawFFT'};
@@ -128,7 +135,7 @@ clear label;
 for i = 1:124
     t = wav{i+1,S1S2}{2,1};
     d = diff(cell2mat(t));
-    [h,~] = hist(d,linspace(0.2,1,20));
+    [h,~] = hist(d,linspace(0.05,1,20));
     h1(i,:) = [h,wav{i+1,CYCLE}{2,2},wav{i+1,CYCLE}{2,2}];
     label(i,1) = wav{i+1,1};
 end
