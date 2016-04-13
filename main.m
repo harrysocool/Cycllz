@@ -10,12 +10,7 @@ CYCLE2 = 13;
 % parameters
 level = 5;
 Fs = 2205;
-artifact = [1,40];
-extrahls = [41,59];
-murmur = [60,93];
-normal = [94,124];
-testing = [125,176];
-all = [1,176];
+PATH = './datasetB';
 
 % load('wav.mat');
 run preprocessing;
