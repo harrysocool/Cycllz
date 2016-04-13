@@ -3,7 +3,7 @@
 % one = 7;
 close all;
 N = randi(all,1,5);
-%     N = one * ones(1,5);
+    N = one * ones(1,5);
     getNplot(N,wav,ORI,RAW,'signal');
 %     getNplot(N,wav,RAW,DEN2,'signal');
 %     getNplot(N,wav,ENERGY,ENERGY+1,'energy');

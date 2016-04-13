@@ -1,5 +1,5 @@
 % one = randi(all,1,1);
-% one = 67;
+% one = 2;
 
 t = wav{one,ENERGY}{2,1};
 w = wav{one,ENERGY}{2,2};
