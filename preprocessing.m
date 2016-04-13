@@ -1,6 +1,5 @@
 
 %% put everything into the wav cell
-decimatedRate = 20;
 clear wav;
 wav(1,:) = {'index','location','name','raw','normalised'};
 d = dir(PATH);
@@ -26,7 +25,7 @@ for i  = 1:size(string,2)
         eval([string{i},' = ','[',num2str(temp(1)),',',num2str(temp(length(temp))),']']);
     end
 end
-
+all = [2,size(wav,1)];
 %% saving rawFFT into wav cell
 % NO.5 column is the FFT data, 2X2 cell include x axis & y axis
 wav(1,RAW+1) = {'rawFFT'};
