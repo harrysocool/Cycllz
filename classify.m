@@ -6,7 +6,7 @@ for j=1:size(temp,2)
 end
 
 %% cross validation
-c = cvpartition(label,'HoldOut',0.6);
+c = cvpartition(label,'HoldOut',0.9);
 trIdx = c.training;
 teIdx = c.test;
  
@@ -29,10 +29,10 @@ model = fitcecoc(trainData,trainLabel,'Coding','onevsone','Learners','svm');
 nlabel = predict(model,testData);
 
 %% Result
-
-% plot(label,'r'); hold on
-% plot(nlabel,'b')
-
 tf = testLabel - nlabel;
-correctRate = length(find(tf == 0))/size(label,1);
+correctRate = length(find(tf == 0))/size(nlabel,1);
 display(['correctRate: ',num2str(correctRate)]);
+
+%%
+% plot(testLabel,'r'); hold on
+% plot(nlabel,'b')
