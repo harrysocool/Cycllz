@@ -34,5 +34,5 @@ correctRate = length(find(tf == 0))/size(nlabel,1);
 display(['correctRate: ',num2str(correctRate)]);
 
 %%
-% plot(testLabel,'r'); hold on
-% plot(nlabel,'b')
+plot(testLabel,'r'); hold on
+plot(nlabel,'b')
