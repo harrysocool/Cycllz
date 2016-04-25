@@ -6,8 +6,8 @@ N = randi(all,1,5);
 %     N = one * ones(1,5);
 %     getNplot(N,wav,ORI,RAW,'signal');
 %     getNplot(N,wav,RAW,DEN2,'signal');
-    getNplot(N,wav,ENERGY,ENERGY+1,'energy');
-% getNplot(N,wav,ENERGY,S1S2,'s1s2');
+%     getNplot(N,wav,ENERGY,ENERGY+1,'energy');
+getNplot(N,wav,RAW,DEN2,'FFT');
 %% 
 close all;
 one = randi(all,1,1);
@@ -23,7 +23,7 @@ t = cell2mat(t);
 d = diff(t);
 
 % Histogram method
-[c,h] = hist(d,linspace(0.2,1,20));
+[c,h] = hist(d,linspace(0.05,1,20));
 [~,S] = sort(c,'descend');
 D = abs(wav{one,CYCLE}{2,2} - h(S(1)));
 

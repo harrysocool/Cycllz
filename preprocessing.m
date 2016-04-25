@@ -132,8 +132,8 @@ wav(1,CYCLE2) = {'2 cycle times'};
 clear h1;
 clear label;
 for i = 1:size(wav,1)-1
-    t = wav{i+1,S1S2}{2,1};
-    d = diff(cell2mat(t));
+    t1 = wav{i+1,S1S2}{2,1};
+    d = diff(cell2mat(t1));
     [h,~] = hist(d,linspace(0.05,1,20));
     h1(i,:) = [h,wav{i+1,CYCLE}{2,2},wav{i+1,CYCLE}{2,5}];
     label(i,1) = wav{i+1,1};

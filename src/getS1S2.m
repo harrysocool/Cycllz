@@ -91,7 +91,7 @@ function s = getS1S2(t,w,inter,i50,t_st)
             end
         end
 
-        % only pick biggest two peaka in one cycle window
+        % only pick biggest three or two peaks in one cycle window
         new_locs2 = cell(0);
         for i = T_st:interval:length(t)
             T_end = i+interval;
