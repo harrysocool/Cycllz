@@ -43,4 +43,4 @@ plot(SD(2)*ones(length(d)),'b--');
 
 figure('Position',[0 100 550 150])
 histogram(d,linspace(0.2,1,20));
-display(wav{one,CYCLE}{2,2});
+display(['std: ',num2str(wav{one,CYCLE}{2,5})]);

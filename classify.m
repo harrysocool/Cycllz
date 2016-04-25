@@ -6,10 +6,10 @@ for j=1:size(temp,2)
 end
 
 %% cross validation
-c = cvpartition(label,'HoldOut',0.1);
+c = cvpartition(label,'HoldOut',0.2);
 trIdx = c.training;
 teIdx = c.test;
- 
+
 trainData = temp(trIdx,:);
 trainLabel = label(trIdx,:);
 testData = temp(teIdx,:);

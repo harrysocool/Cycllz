@@ -99,8 +99,14 @@ function s = getS1S2(t,w,inter,i50,t_st)
             idx1 = find((temp_idx >= i) & (temp_idx <= T_end));
             temp_pks2 = cell2mat(new_locs1(idx1,2));
             [~,idx2] = sort(temp_pks2,'descend');
-            if(length(idx2)>=2)
+            if(length(idx2)==2)
                 new_locs2(size(new_locs2,1)+1:size(new_locs2,1)+2,:) = new_locs1(idx1(idx2(1:2)),:);
+            elseif(length(idx2)>2)
+                if(temp_pks2(idx2(3)) >= 0.5*temp_pks2(idx2(2)))
+                    new_locs2(size(new_locs2,1)+1:size(new_locs2,1)+3,:) = new_locs1(idx1(idx2(1:3)),:);
+                else
+                    new_locs2(size(new_locs2,1)+1:size(new_locs2,1)+2,:) = new_locs1(idx1(idx2(1:2)),:);
+                end
             elseif(~isempty(idx2))
                 new_locs2(size(new_locs2,1)+1,:) = new_locs1(idx1(idx2(1)),:);
             end
@@ -118,7 +124,7 @@ function s = getS1S2(t,w,inter,i50,t_st)
     s = cell(0);
     s(1,:) = {'Time','Peaks location','if Wrong, 1'};
     wrong_peaks = find(cell2mat(new_locs2(:,2)) < 0.1);
-    if(length(wrong_peaks) > 15)
+    if(length(wrong_peaks) > 5)
         s(2,:) = {new_locs(:,1),new_locs(:,2),1};
     else
         s(2,:) = {new_locs2(:,1),new_locs2(:,2),0};

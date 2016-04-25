@@ -1,5 +1,4 @@
-
-% one = randi(normal,1,1);
+% one = randi(murmur,1,1);
 % one = 365;
 
 t = wav{one,ENERGY}{2,1};
@@ -109,8 +108,14 @@ if(~isempty(new_locs1))
         idx1 = find((temp_idx >= i) & (temp_idx <= T_end));
         temp_pks2 = cell2mat(new_locs1(idx1,2));
         [~,idx2] = sort(temp_pks2,'descend');
-        if(length(idx2)>=2)
+        if(length(idx2)==2)
             new_locs2(size(new_locs2,1)+1:size(new_locs2,1)+2,:) = new_locs1(idx1(idx2(1:2)),:);
+        elseif(length(idx2)>2)
+            if(temp_pks2(idx2(3)) >= 0.5*temp_pks2(idx2(2)))
+                new_locs2(size(new_locs2,1)+1:size(new_locs2,1)+3,:) = new_locs1(idx1(idx2(1:3)),:);
+            else
+                new_locs2(size(new_locs2,1)+1:size(new_locs2,1)+2,:) = new_locs1(idx1(idx2(1:2)),:);
+            end
         elseif(~isempty(idx2))
             new_locs2(size(new_locs2,1)+1,:) = new_locs1(idx1(idx2(1)),:);
         end
