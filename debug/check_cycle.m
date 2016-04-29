@@ -60,5 +60,6 @@ plot(t,a);hold on
 plot(d,0,'go');
 plot(locs1,pks1,'rx');
 plot(locs2,pks2,'ob');
+title([wav{one,3},' NO.',num2str(one)])
 
 disp([num2str(one),' ',wav{one,2},' ',num2str(s),' ',num2str(me)]);

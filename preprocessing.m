@@ -11,8 +11,8 @@ for i = 3:size(d,1)
             wave = decimate(wave,decimatedRate);
             ori = getSignal(wave,Fs);
             % normalise the original signal
-            wave = (wave-min(wave))/(max(wave)-min(wave));
-            wave = wave - mean(wave);
+%             wave = (wave-min(wave))/(max(wave)-min(wave));
+%             wave = wave - mean(wave);
             ww = getSignal(wave,Fs);
             wav(size(wav,1)+1,:) = {i-3,wavset.WavLocation{j},d(i).name,ori,ww};
         end

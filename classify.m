@@ -6,7 +6,7 @@ for j=1:size(temp,2)
 end
 
 %% cross validation
-c = cvpartition(label,'HoldOut',0.5);
+c = cvpartition(label,'HoldOut',0.3);
 trIdx = c.training;
 teIdx = c.test;
 
@@ -27,6 +27,17 @@ testLabel = label(teIdx,:);
 %% SVM
 model = fitcecoc(trainData,trainLabel,'Coding','onevsone','Learners','svm');
 nlabel = predict(model,testData);
+
+%% Random Forest
+opts= struct;
+opts.depth= 9;
+opts.numTrees= 100;
+opts.numSplits= 5;
+opts.verbose= true;
+opts.classifierID= [2,3]; % weak learners to use. Can be an array for mix of weak learners too
+
+m= forestTrain(trainData, trainLabel, opts);
+nlabel = forestTest(m, testData);
 
 %% Result
 tf = testLabel - nlabel;

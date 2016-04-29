@@ -142,9 +142,13 @@ subplot(311)
 plot(t,w);hold on
 plot(cell2mat(new_locs(:,1)),cell2mat(new_locs(:,2)),'ro');
 plot(wav{one,CYCLE}{2,1},zeros(length(wav{one,CYCLE}{2,1}),1),'bo');
+title([wav{one,3},' NO.',num2str(one)])
+
 subplot(312)
 plot(t,w);hold on
 plot(cell2mat(new_locs1(:,1)),cell2mat(new_locs1(:,2)),'rx');
+title([wav{one,3},' NO.',num2str(one)])
+
 subplot(313)
 plot(t,w);hold on;grid on
 plot(cell2mat(new_locs2(:,1)),cell2mat(new_locs2(:,2)),'rx');

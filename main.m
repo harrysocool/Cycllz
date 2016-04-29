@@ -7,16 +7,16 @@ CYCLE = 11;
 S1S2 = 12;
 CYCLE2 = 13;
 %% parameters for datasetA
-% decimatedRate = 20;
-% level = 5;
-% Fs = 2205;
-% PATH = './datasetA';
+decimatedRate = 20;
+level = 5;
+Fs = 2205;
+PATH = './datasetA';
 
 %% parameters for datasetB
-decimatedRate = 2;
-level = 5;
-Fs = 2000;
-PATH = './datasetB';
+% decimatedRate = 4;
+% level = 5;
+% Fs = 1000;
+% PATH = './datasetB';
 
 % load('wav.mat');
 run preprocessing;
