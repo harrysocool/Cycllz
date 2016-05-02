@@ -3,16 +3,16 @@
 % one = 7;
 close all;
 % N = randi(normal,1,5);
-% N = [123,85,42,19,123];
-    N = one * ones(1,5);
-%     getNplot(N,wav,ORI,RAW,'signal');
+N = [123,85,42,19,123];
+%     N = one * ones(1,5);
+    getNplot(N,wav,ORI,RAW,'signal');
     getNplot(N,wav,RAW,DEN2,'signal');
-    getNplot(N,wav,ENERGY,ENERGY,'energy');
+%     getNplot(N,wav,ENERGY,ENERGY,'energy');
 % getNplot(N,wav,RAW,DEN2,'FFT');
 %% 
 close all;
-% one = randi(extrahls,1,1);
-one = 98;
+one = randi(artifact,1,1);
+% one = 98;
 
 getNplot(one,wav,ENERGY,S1S2,'s1s2');
 

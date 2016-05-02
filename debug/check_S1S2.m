@@ -131,8 +131,8 @@ else
 end
 %%
 
-wrong_peaks = find(cell2mat(new_locs2(:,2)) < 0.1);
-if(length(wrong_peaks) > 15)
+wrong_peaks = find(cell2mat(new_locs2(:,2)) < 0.05);
+if(length(wrong_peaks) > 5)
     display('too many wrong peaks');
 end
 

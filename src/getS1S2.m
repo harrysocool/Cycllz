@@ -123,7 +123,7 @@ function s = getS1S2(t,w,inter,i50,t_st)
     %% Decide which new_locs to choose
     s = cell(0);
     s(1,:) = {'Time','Peaks location','if Wrong, 1'};
-    wrong_peaks = find(cell2mat(new_locs2(:,2)) < 0.1);
+    wrong_peaks = find(cell2mat(new_locs2(:,2)) < 0.05);
     if(length(wrong_peaks) > 5)
         s(2,:) = {new_locs(:,1),new_locs(:,2),1};
     else

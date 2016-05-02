@@ -42,7 +42,7 @@ function model = forestTrain(X, Y, opts)
         if verbose
             p10= floor(numTrees/10);
             if mod(i, p10)==0 || i==1 || i==numTrees
-                fprintf('Training tree %d/%d...\n', i, numTrees);
+%                 fprintf('Training tree %d/%d...\n', i, numTrees);
             end
         end
     end

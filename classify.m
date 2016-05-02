@@ -5,6 +5,7 @@ for j=1:size(temp,2)
     temp(:,j)=temp(:,j)/std(temp(:,j));
 end
 
+for loop = 1:10
 %% cross validation
 c = cvpartition(label,'HoldOut',0.3);
 trIdx = c.training;
@@ -37,13 +38,15 @@ opts.verbose= true;
 opts.classifierID= [2,3]; % weak learners to use. Can be an array for mix of weak learners too
 
 m= forestTrain(trainData, trainLabel, opts);
+%%
 nlabel = forestTest(m, testData);
 
 %% Result
 tf = testLabel - nlabel;
 correctRate = length(find(tf == 0))/size(nlabel,1);
 display(['correctRate: ',num2str(correctRate)]);
-
+    cR(loop) = correctRate;
+end
 %%
 plot(testLabel,'r'); hold on
 plot(nlabel,'b')
